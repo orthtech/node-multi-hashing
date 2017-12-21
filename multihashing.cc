@@ -31,7 +31,7 @@ using namespace node;
 using namespace v8;
 
 void except(const char* msg) {
-    Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
+    Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
     isolate->ThrowException(Exception::TypeError(
         String::NewFromUtf8(isolate, msg)));
     return;
