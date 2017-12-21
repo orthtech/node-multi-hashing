@@ -31,14 +31,14 @@ using namespace node;
 using namespace v8;
 
 void except(const char* msg) {
-    Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
+    Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
     isolate->ThrowException(Exception::TypeError(
         String::NewFromUtf8(isolate, msg)));
     return;
 }
 
 void quark(const FunctionCallbackInfo<Value>& args) {
-    Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
+    Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
 
     if (args.Length() < 1)
         return except("You must provide one argument.");
@@ -60,7 +60,7 @@ void quark(const FunctionCallbackInfo<Value>& args) {
 }
 
 void x11(const FunctionCallbackInfo<Value>& args) {
-    Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
+    Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
 
     if (args.Length() < 1)
         return except("You must provide one argument.");
@@ -82,7 +82,7 @@ void x11(const FunctionCallbackInfo<Value>& args) {
 }
 
 void scrypt(const FunctionCallbackInfo<Value>& args) {
-   Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
+   Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
 
    if (args.Length() < 3)
        return except("You must provide buffer to hash, N value, and R value");
@@ -111,7 +111,7 @@ void scrypt(const FunctionCallbackInfo<Value>& args) {
 
 
 void scryptn(const FunctionCallbackInfo<Value>& args) {
-   Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
+   Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
 
    if (args.Length() < 2)
        return except("You must provide buffer to hash and N factor.");
@@ -140,7 +140,7 @@ void scryptn(const FunctionCallbackInfo<Value>& args) {
 }
 
 void scryptjane(const FunctionCallbackInfo<Value>& args) {
-    Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
+    Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
 
     if (args.Length() < 5)
         return except("You must provide two argument: buffer, timestamp as number, and nChainStarTime as number, nMin, and nMax");
@@ -174,7 +174,7 @@ void scryptjane(const FunctionCallbackInfo<Value>& args) {
 }
 
 void keccak(const FunctionCallbackInfo<Value>& args) {
-    Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
+    Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
 
     if (args.Length() < 1)
         return except("You must provide one argument.");
@@ -197,7 +197,7 @@ void keccak(const FunctionCallbackInfo<Value>& args) {
 
 
 void bcrypt(const FunctionCallbackInfo<Value>& args) {
-    Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
+    Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
 
     if (args.Length() < 1)
         return except("You must provide one argument.");
@@ -217,7 +217,7 @@ void bcrypt(const FunctionCallbackInfo<Value>& args) {
 }
 
 void skein(const FunctionCallbackInfo<Value>& args) {
-    Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
+    Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
 
     if (args.Length() < 1)
         return except("You must provide one argument.");
@@ -240,7 +240,7 @@ void skein(const FunctionCallbackInfo<Value>& args) {
 
 
 void groestl(const FunctionCallbackInfo<Value>& args) {
-    Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
+    Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
 
     if (args.Length() < 1)
         return except("You must provide one argument.");
@@ -263,7 +263,7 @@ void groestl(const FunctionCallbackInfo<Value>& args) {
 
 
 void groestlmyriad(const FunctionCallbackInfo<Value>& args) {
-    Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
+    Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
 
     if (args.Length() < 1)
         return except("You must provide one argument.");
@@ -286,7 +286,7 @@ void groestlmyriad(const FunctionCallbackInfo<Value>& args) {
 
 
 void blake(const FunctionCallbackInfo<Value>& args) {
-    Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
+    Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
 
     if (args.Length() < 1)
         return except("You must provide one argument.");
@@ -309,7 +309,7 @@ void blake(const FunctionCallbackInfo<Value>& args) {
 
 
 void fugue(const FunctionCallbackInfo<Value>& args) {
-    Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
+    Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
 
     if (args.Length() < 1)
         return except("You must provide one argument.");
@@ -332,7 +332,7 @@ void fugue(const FunctionCallbackInfo<Value>& args) {
 
 
 void qubit(const FunctionCallbackInfo<Value>& args) {
-    Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
+    Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
 
     if (args.Length() < 1)
         return except("You must provide one argument.");
@@ -355,7 +355,7 @@ void qubit(const FunctionCallbackInfo<Value>& args) {
 
 
 void hefty1(const FunctionCallbackInfo<Value>& args) {
-    Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
+    Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
 
     if (args.Length() < 1)
         return except("You must provide one argument.");
@@ -378,7 +378,7 @@ void hefty1(const FunctionCallbackInfo<Value>& args) {
 
 
 void shavite3(const FunctionCallbackInfo<Value>& args) {
-    Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
+    Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
 
     if (args.Length() < 1)
         return except("You must provide one argument.");
@@ -400,7 +400,7 @@ void shavite3(const FunctionCallbackInfo<Value>& args) {
 }
 
 void cryptonight(const FunctionCallbackInfo<Value>& args) {
-    Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
+    Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
 
     bool fast = false;
 
@@ -433,7 +433,7 @@ void cryptonight(const FunctionCallbackInfo<Value>& args) {
 }
 
 void x13(const FunctionCallbackInfo<Value>& args) {
-    Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
+    Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
 
     if (args.Length() < 1)
         return except("You must provide one argument.");
@@ -455,7 +455,7 @@ void x13(const FunctionCallbackInfo<Value>& args) {
 }
 
 void boolberry(const FunctionCallbackInfo<Value>& args) {
-    Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
+    Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
 
     if (args.Length() < 2)
         return except("You must provide two arguments.");
@@ -490,7 +490,7 @@ void boolberry(const FunctionCallbackInfo<Value>& args) {
 }
 
 void nist5(const FunctionCallbackInfo<Value>& args) {
-    Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
+    Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
 
     if (args.Length() < 1)
         return except("You must provide one argument.");
@@ -512,7 +512,7 @@ void nist5(const FunctionCallbackInfo<Value>& args) {
 }
 
 void sha1(const FunctionCallbackInfo<Value>& args) {
-    Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
+    Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
 
     if (args.Length() < 1)
         return except("You must provide one argument.");
@@ -534,7 +534,7 @@ void sha1(const FunctionCallbackInfo<Value>& args) {
 }
 
 void x15(const FunctionCallbackInfo<Value>& args) {
-    Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
+    Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
 
     if (args.Length() < 1)
         return except("You must provide one argument.");
@@ -556,7 +556,7 @@ void x15(const FunctionCallbackInfo<Value>& args) {
 }
 
 void fresh(const FunctionCallbackInfo<Value>& args) {
-    Isolate* isolate = Isolate::GetCurrent(); HandleScope scope(isolate);
+    Isolate* isolate = args.GetIsolate(); HandleScope scope(isolate);
 
     if (args.Length() < 1)
         return except("You must provide one argument.");
